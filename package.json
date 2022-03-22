@@ -15,7 +15,7 @@
   },
   "gypfile": true,
   "dependencies": {
-    "fuse-shared-library": "https://github.com/gityaka/fuse-shared-library.git",
+    "fuse-shared-library": "github:gityaka/fuse-shared-library",
     "nanoresource": "^1.3.0",
     "napi-macros": "^2.0.0",
     "node-gyp-build": "^4.2.0"
