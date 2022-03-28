@@ -194,8 +194,13 @@ class Fuse extends Nanoresource {
     if (this.opts.modules) options.push('modules=' + this.opts.modules)
 
     if (this.opts.displayFolder && IS_OSX) { // only works on osx
-      options.push('volname=' + path.basename(this.opts.name || this.mnt))
-      if (HAS_FOLDER_ICON) options.push('volicon=' + OSX_FOLDER_ICON)
+      options.push('volname=' + path.basename(this.opts.name || this.mnt));
+      if (this.opts.folderIcon && fs.existsSync(this.opts.folderIcon)) {
+        options.push('volicon=' + this.opts.folderIcon);
+      }
+      else if (HAS_FOLDER_ICON) {
+        options.push('volicon=' + OSX_FOLDER_ICON);
+      }
     }
 
     return options.length ? '-o' + options.join(',') : ''
